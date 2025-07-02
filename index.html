@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Playground NBA - JS Edition</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+            color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ffa500;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        button {
+            background-color: #ffa500;
+            color: #1c1c1c;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 12px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255,165,0,0.5);
+        }
+
+        .court-line {
+            width: 80%;
+            height: 4px;
+            background: #ffa500;
+            margin: 30px 0;
+            border-radius: 2px;
+        }
+    </style>
+
+    <script>
+        function jogoNumeroSecreto() {
+            const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+            let tentativa;
+            do {
+                tentativa = parseInt(prompt("🏀 Manda ver! Tenta acertar meu número secreto entre 1 e 10:"));
+                if (tentativa < numeroSecreto) {
+                    alert("🔥 Quase, parceiro! Tenta um número mais alto!");
+                } else if (tentativa > numeroSecreto) {
+                    alert("⛔️ Passou do ponto! Tenta algo mais baixo, MVP!");
+                } else {
+                    alert("💯 BUCKETS! Você acertou na mosca, campeão! 🏆");
+                }
+            } while (tentativa !== numeroSecreto);
+        }
+
+        function jogoMedia() {
+            let total = 0;
+            let qtd = parseInt(prompt("📋 Quantas notas vai mandar pro coach analisar hoje?"));
+            for (let i = 1; i <= qtd; i++) {
+                let nota = parseFloat(prompt(`🎯 Solta a nota ${i}, all-star:`));
+                total += nota;
+            }
+            let media = total / qtd;
+            alert(`📊 Sua média tá na régua: ${media.toFixed(2)}! Tá quase virando lenda da liga!`);
+        }
+
+        function somaNumeros() {
+            let num1 = parseFloat(prompt("🏀 Manda o primeiro número:"));
+            let num2 = parseFloat(prompt("Agora solta o segundo número:"));
+            let soma = num1 + num2;
+            alert(`🧮 A soma deu: ${soma}. Jogada simples e certeira, estilo bandeja debaixo da cesta!`);
+        }
+    </script>
+</head>
+<body>
+    <h1>🏀 Playground NBA - JS Edition</h1>
+    <button onclick="jogoNumeroSecreto()">Número Secreto</button>
+    <button onclick="jogoMedia()">Média das Lendas</button>
+    <button onclick="somaNumeros()">Somar Números</button>
+    <div class="court-line"></div>
+</body>
+</html>
